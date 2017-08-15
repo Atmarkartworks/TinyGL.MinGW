@@ -76,7 +76,7 @@ GL_DEPS= ../lib/libTinyGL.a
 #GL_DEPS=
 
 #####################################################################
-# Micro windowX11 configuration (for the examples only)
+# MinGW32 configuration (for the examples only)
 
 ifdef TINYGL_USE_MINGW
 UI_LIBS= -mwindows -lgdi32
