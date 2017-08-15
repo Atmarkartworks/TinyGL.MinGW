@@ -1,4 +1,31 @@
+TinyGL for MinGW32 (c) 2017 Fabrice Bellard.
+
+
+Build:
+------
+
+c:\>cd TinyGL\src
+c:\TinyGL\src>mingw32-make -f build.mak
+
+...
+
+c:\TinyGL\src>copy libTinyGL.a ..\lib
+c:\TinyGL\src>cd ..\examples
+c:\TinyGl\examples>mingw32-make
+
+...
+
+Test:
+-----
+c:\TinyGL\examples>gears.exe
+
+
+
+Done.
+-------------------------------------------------------------------------------
+
 TinyGL 0.4 (c) 1997-2002 Fabrice Bellard.
+
 
 General Description:
 --------------------
