@@ -11,7 +11,7 @@
  *		If You've Found This Code Useful, Please Let Me Know.
  *		Visit My Site At nehe.gamedev.net
  *
- *      @create 2017-Aug-11
+ *      @modified 2017-Aug-11
  *      @author Atmarkartworks t.m
  *
  */
