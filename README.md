@@ -39,6 +39,7 @@ MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 
 
 
+---
 
 # TinyGL : a Small, Free and Fast Subset of OpenGL*
 
