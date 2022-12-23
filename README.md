@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## TinyGL for MinGW32 (c) 2022 Fabrice Bellard.
 
 Prerequired
@@ -34,7 +28,7 @@ MINGW64 ~/src/TinyGL/examples$ mingw32-make
 Test
 -----
 ```
-MINGW64 ~/src/TinyGL/examples$ gears.exe
+MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 ```
 
 ## <img src="http://www.atmarkartworks.com/TinyGL/screenshot01.jpg" width="50%">
@@ -130,7 +124,7 @@ have been lost on my hard disk !
 
 
 
---\* OpenGL(R) is a registered trademark of Silicon Graphics, Inc.&nbsp;
+###### \* OpenGL(R) is a registered trademark of Silicon Graphics, Inc.&nbsp;
 
 ---
 

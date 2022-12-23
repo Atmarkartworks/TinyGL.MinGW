@@ -1,4 +1,10 @@
-version 0.4: 
+version 0.4.1:
+ - changed license to MIT
+ - fixed compilation errors
+ - fixed lighting bug
+ - fixed color conversions
+
+version 0.4:
  - added 24/32 bit rendering support (Olivier Landemarre - F. Bellard)
  - fixed GL_TRIANGLE_STRIP (Olivier Landemarre)
  - added gl_malloc, gl_free, gl_zalloc wrappers (Olivier Landemarre)
@@ -17,7 +23,7 @@ version 0.2: Fabrice Bellard
  - fixed some error reporting cases in the examples
  - endianness is deduced from the glibc (BYTE_ORDER macro)
 
-version 0.19: Peder Blekken 
+version 0.19: Peder Blekken
  - new files BeOS/* src/msghandling.*, src/arrays.*, src/oscontext.c
      include/GL/oscontext.h src/features.h
  - added support for BeOS, see README.BEOS
@@ -29,7 +35,7 @@ version 0.19: Peder Blekken
  - added glGetFloatv, limited support.
  - added some pnames for glGetIntegerv
  - added some empty functions in include/GL/gl.h to compile VRMLView
- - added GL_VERSION_1_1 define in include/GL/gl.h    
+ - added GL_VERSION_1_1 define in include/GL/gl.h
  - fixed "bug" when context->gl_resize_viewport is not set.
  - fixed bug in glBindTexture (didn't accept texture object 0)
 
