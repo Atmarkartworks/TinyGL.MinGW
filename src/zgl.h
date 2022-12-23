@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
 #include <GL/gl.h>
 #include "zbuffer.h"
 #include "zmath.h"

@@ -196,7 +196,7 @@ static int create_ximage(TinyGLXContext *ctx,
     ctx->ximage=XCreateImage(ctx->display, None, depth, ZPixmap, 0, 
                              NULL,xsize,ysize, 8, 0);
     framebuffer=gl_malloc(ysize * ctx->ximage->bytes_per_line);
-    ctx->ximage->data = framebuffer;
+    ctx->ximage->data = (char *)framebuffer;
     return 0;
 }
 
@@ -261,7 +261,7 @@ Bool glXMakeCurrent( Display *dpy, GLXDrawable drawable,
   TinyGLXContext *ctx = (TinyGLXContext *) ctx1;
   XWindowAttributes attr;
   int i,xsize,ysize;
-  unsigned int palette[ZB_NB_COLORS];
+  int palette[ZB_NB_COLORS];
   unsigned char color_indexes[ZB_NB_COLORS];
   ZBuffer *zb;
   XColor xcolor;
@@ -324,11 +324,11 @@ Bool glXMakeCurrent( Display *dpy, GLXDrawable drawable,
         switch(bpp) {
         case 24:
             mode = ZB_MODE_RGB24;
-            ctx->do_convert = (TGL_FEATURE_RENDER_BITS != 16);
+            ctx->do_convert = (TGL_FEATURE_RENDER_BITS != 24);
             break;
         case 32:
             mode = ZB_MODE_RGBA;
-            ctx->do_convert = (TGL_FEATURE_RENDER_BITS != 16);
+            ctx->do_convert = (TGL_FEATURE_RENDER_BITS != 32);
             break;
         default:
             mode = ZB_MODE_5R6G5B;

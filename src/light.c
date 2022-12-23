@@ -5,7 +5,6 @@ void glopMaterial(GLContext *c,GLParam *p)
 {
   int mode=p[1].i;
   int type=p[2].i;
-  float *v=&p[3].f;
   int i;
   GLMaterial *m;
 
@@ -20,29 +19,29 @@ void glopMaterial(GLContext *c,GLParam *p)
   switch(type) {
   case GL_EMISSION:
     for(i=0;i<4;i++)
-      m->emission.v[i]=v[i];
+      m->emission.v[i]=p[3 + i].f;
     break;
   case GL_AMBIENT:
     for(i=0;i<4;i++)
-      m->ambient.v[i]=v[i];
+      m->ambient.v[i]=p[3 + i].f;
     break;
   case GL_DIFFUSE:
     for(i=0;i<4;i++)
-      m->diffuse.v[i]=v[i];
+      m->diffuse.v[i]=p[3 + i].f;
     break;
   case GL_SPECULAR:
     for(i=0;i<4;i++)
-      m->specular.v[i]=v[i];
+      m->specular.v[i]=p[3 + i].f;
     break;
   case GL_SHININESS:
-    m->shininess=v[0];
-    m->shininess_i = (v[0]/128.0f)*SPECULAR_BUFFER_RESOLUTION;
+    m->shininess=p[3].f;
+    m->shininess_i = (m->shininess/128.0f)*SPECULAR_BUFFER_RESOLUTION;
     break;
   case GL_AMBIENT_AND_DIFFUSE:
     for(i=0;i<4;i++)
-      m->diffuse.v[i]=v[i];
+      m->diffuse.v[i]=p[3 + i].f;
     for(i=0;i<4;i++)
-      m->ambient.v[i]=v[i];
+      m->ambient.v[i]=p[3 + i].f;
     break;
   default:
     assert(0);
@@ -134,19 +133,18 @@ void glopLight(GLContext *c,GLParam *p)
 void glopLightModel(GLContext *c,GLParam *p)
 {
   int pname=p[1].i;
-  float *v=&p[2].f;
   int i;
 
   switch(pname) {
   case GL_LIGHT_MODEL_AMBIENT:
     for(i=0;i<4;i++) 
-      c->ambient_light_model.v[i]=v[i];
+      c->ambient_light_model.v[i]=p[2 + i].f;
     break;
   case GL_LIGHT_MODEL_LOCAL_VIEWER:
-    c->local_light_model=(int)v[0];
+    c->local_light_model=(int)p[2].f;
     break;
   case GL_LIGHT_MODEL_TWO_SIDE:
-    c->light_model_two_side = (int)v[0];
+    c->light_model_two_side = (int)p[2].f;
     break;
   default:
     tgl_warning("glopLightModel: illegal pname: 0x%x\n", pname);
@@ -210,9 +208,9 @@ void gl_shade_vertex(GLContext *c,GLVertex *v)
 
     if (l->position.v[3] == 0) {
       /* light at infinity */
-      d.X=l->position.v[0];
-      d.Y=l->position.v[1];
-      d.Z=l->position.v[2];
+      d.X=l->norm_position.v[0];
+      d.Y=l->norm_position.v[1];
+      d.Z=l->norm_position.v[2];
       att=1;
     } else {
       /* distance attenuation */
@@ -220,7 +218,7 @@ void gl_shade_vertex(GLContext *c,GLVertex *v)
       d.Y=l->position.v[1]-v->ec.v[1];
       d.Z=l->position.v[2]-v->ec.v[2];
       dist=sqrt(d.X*d.X+d.Y*d.Y+d.Z*d.Z);
-      if (dist>1E-3) {
+      if (dist>1E-10f) {
         tmp=1/dist;
         d.X*=tmp;
         d.Y*=tmp;
