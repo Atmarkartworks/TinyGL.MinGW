@@ -31,7 +31,7 @@ Test
 MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 ```
 
-+ <img src="http://www.atmarkartworks.com/TinyGL/screenshot01.jpg" width="50%">
+
 
 
 
