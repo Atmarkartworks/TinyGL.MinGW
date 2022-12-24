@@ -1,4 +1,4 @@
-## TinyGL for MinGW32 (c) 2022 Fabrice Bellard.
+## TinyGL for MinGW (c) 2022 Fabrice Bellard.
 
 Prerequired
 -----------
