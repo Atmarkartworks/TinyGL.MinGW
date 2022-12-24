@@ -22,7 +22,7 @@ LIB = libTinyGL.a
 all: $(LIB)
 
 $(LIB): $(OBJS)
-	rm $(LIB)
+	rm *.a
 	ar rcs $(LIB) $(OBJS)
 	cp $(LIB) ../lib
 							
