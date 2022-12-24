@@ -15,7 +15,6 @@ MINGW64 ~/src/TinyGL/src$ mingw32-make -f build.mak
 
 ...
 
-MINGW64 ~/src/TinyGL/src$ cp libTinyGL.a ../lib
 MINGW64 ~/src/TinyGL/src$ cd ../examples
 MINGW64 ~/src/TinyGL/examples$ mingw32-make
 

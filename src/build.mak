@@ -22,9 +22,9 @@ LIB = libTinyGL.a
 all: $(LIB)
 
 $(LIB): $(OBJS)
-#	rm $(LIB)
+	rm $(LIB)
 	ar rcs $(LIB) $(OBJS)
-#	cp $(LIB) gg:ppc-morphos/lib
+	cp $(LIB) ../lib
 							
 clean:
 	rm *.o *.a

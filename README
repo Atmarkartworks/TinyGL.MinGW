@@ -1,31 +1,4 @@
-TinyGL for MinGW32 (c) 2017 Fabrice Bellard.
-
-
-Build:
-------
-
-c:\>cd TinyGL\src
-c:\TinyGL\src>mingw32-make -f build.mak
-
-...
-
-c:\TinyGL\src>copy libTinyGL.a ..\lib
-c:\TinyGL\src>cd ..\examples
-c:\TinyGl\examples>mingw32-make
-
-...
-
-Test:
------
-c:\TinyGL\examples>gears.exe
-
-
-
-Done.
--------------------------------------------------------------------------------
-
 TinyGL 0.4 (c) 1997-2002 Fabrice Bellard.
-
 
 General Description:
 --------------------
@@ -44,8 +17,8 @@ The main features of TinyGL are:
 - Header compatible with OpenGL (the headers are adapted from the very good
 Mesa by Brian Paul et al.)
 
-- Zlib-like licence for easy integration in commercial designs (read
-the LICENCE file).
+- MIT license for easy integration in commercial designs (read
+the LICENSE file).
 
 - Subset of GLX for easy testing with X Window. 
 
