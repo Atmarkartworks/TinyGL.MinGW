@@ -1,6 +1,6 @@
 ## TinyGL for MinGW (c) 2022 Fabrice Bellard.
 
-Prerequired
+Prerequisites
 -----------
 ```
 msys2
