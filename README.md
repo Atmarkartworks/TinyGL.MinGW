@@ -31,7 +31,8 @@ MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 ```
 
 
-+ <br><img src="http://www.atmarkartworks.com/TinyGL/screenshot02.jpg" width="50%">
++ <br><img src="https://user-images.githubusercontent.com/21020619/211434657-842fe953-285d-46f0-82e7-8ead764787b2.jpg" width="50%">
+
 
 
 
