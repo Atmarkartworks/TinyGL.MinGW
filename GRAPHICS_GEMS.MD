@@ -681,6 +681,8 @@ This porting map demonstrates that **TinyGL 0.4.1 can be effectively replaced us
 ✅ **Modular approach** enables staged implementation  
 ✅ **Production quality** with 170-200 hours estimated effort  
 
+Furthermore, the **stage-based implementation roadmap is exceptionally valuable** for optimizing deployment scenarios. If only wireframe polygon rendering is required, developers are strongly encouraged to reference the stage-based approach provided in this guide to identify minimal feature dependencies. Given that TinyGL was originally designed as an ultra-compact implementation ("Tiny"), achieving even more micro-scale ("Micro") implementations may be feasible with selective feature integration.
+
 ---
 
 **Document Metadata**:
