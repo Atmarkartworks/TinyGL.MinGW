@@ -35,6 +35,23 @@ MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 
 
 
+### Graphics Gems Integration Guide
+**Comprehensive technical reference for replacing TinyGL with Graphics Gems source code**
+
+📖 **[TinyGL 0.4.1 Porting Map: Replacement by Graphics Gems](../GRAPHICS_GEMS.MD)**
+- Complete module-by-module mapping (22 core features)
+- Graphics Gems I-V integration roadmap
+- 170-200 hour implementation plan
+- 85-95% coverage with Graphics Gems algorithms
+- Stage-by-stage implementation guide (6 weeks)
+- CC0 1.0 Universal license (Public Domain)
+
+**Key Highlights:**
+- Direct implementation: 68% from Graphics Gems
+- With supplementation: 85-95% coverage
+- Proven algorithms from 30+ years of graphics research
+- Modular approach for staged implementation
+
 
 
 ---
