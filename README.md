@@ -34,11 +34,11 @@ MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 + <br><img src="https://user-images.githubusercontent.com/21020619/211434657-842fe953-285d-46f0-82e7-8ead764787b2.jpg" width="50%">
 
 
-
+---
 ### Graphics Gems Integration Guide
 **Comprehensive technical reference for replacing TinyGL with Graphics Gems source code**
 
-📖 **[TinyGL 0.4.1 Porting Map: Replacement by Graphics Gems](../GRAPHICS_GEMS.MD)**
+📖 **[TinyGL 0.4.1 Porting Map: Replacement by Graphics Gems](GRAPHICS_GEMS.MD)**
 - Complete module-by-module mapping (22 core features)
 - Graphics Gems I-V integration roadmap
 - 170-200 hour implementation plan
@@ -141,6 +141,15 @@ have been lost on my hard disk !
 
 
 ###### \* OpenGL(R) is a registered trademark of Silicon Graphics, Inc.&nbsp;
+
+---
+
+License
+-------
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**TinyGL** copyright (c) 1997-2022 Fabrice Bellard
 
 ---
 
