@@ -47,7 +47,7 @@ MINGW64 ~/src/TinyGL/examples$ ./gears.exe
 - CC0 1.0 Universal license (Public Domain)
 
 **Key Highlights:**
-- Direct implementation: 68% from Graphics Gems
+- Direct implementation: 68% from [Graphics Gems](https://github.com/erich666/GraphicsGems)
 - With supplementation: 85-95% coverage
 - Proven algorithms from 30+ years of graphics research
 - Modular approach for staged implementation

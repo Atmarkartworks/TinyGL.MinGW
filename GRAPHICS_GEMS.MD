@@ -2,7 +2,7 @@
 
 **Created**: 2026-06-17  
 **Target**: TinyGL 0.4.1 (MinGW version) → Graphics Gems (I-V) Replacement Mapping  
-**Purpose**: 1-to-1 Mapping of TinyGL Module Structure with Graphics Gems Code Assets
+**Purpose**: 1-to-1 Mapping of TinyGL Module Structure with [Graphics Gems](https://github.com/erich666/GraphicsGems) Code Assets
 
 ---
 
