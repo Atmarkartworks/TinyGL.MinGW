@@ -102,7 +102,7 @@ Many developers mistakenly believe that `glViewport(0, 0, 800, 600)` "tells Open
 
 - `glViewport()` is a **post-processing transformation**
 - It operates on **already-transformed NDC coordinates** in the range [-1, +1]
-- It maps those NDC values to screen pixels (0~800, 0~600)
+- It maps those NDC values to screen pixels (0 .. 800, 0 .. 600)
 - It does **NOT** change what coordinate system the vertex shader must produce
 
 **The Correct Data Flow:**
@@ -115,7 +115,7 @@ NDC Space [-1, +1]
     ↓
 [Viewport Transform Applied Here]
     ↓
-Screen Pixels [0~800, 0~600]
+Screen Pixels [0..800, 0..600]
 ```
 
 **The lesson:** The viewport is an output-stage mapping, not an input-stage definition. You must provide NDC or a coordinate system that can be transformed into NDC.
@@ -128,13 +128,13 @@ Suppose you attempt to convert pixel coordinates to NDC without considering aspe
 
 ```glsl
 // Naive conversion WITHOUT aspect ratio correction
-ndc_x = (pixel_x / 800.0) * 2.0 - 1.0;  // 0~800 → -1~+1
-ndc_y = (pixel_y / 600.0) * 2.0 - 1.0;  // 0~600 → -1~+1
+ndc_x = (pixel_x / 800.0) * 2.0 - 1.0;  // 0..800 → -1..+1
+ndc_y = (pixel_y / 600.0) * 2.0 - 1.0;  // 0..600 → -1..+1
 ```
 
 This creates an **asymmetric NDC mapping**:
-- X-axis: 800 pixels mapped to -1~+1 (full NDC range)
-- Y-axis: 600 pixels mapped to -1~+1 (full NDC range, but fewer pixels per unit)
+- X-axis: 800 pixels mapped to -1..+1 (full NDC range)
+- Y-axis: 600 pixels mapped to -1..+1 (full NDC range, but fewer pixels per unit)
 
 **Result:** A square in pixel space `(100×100)` becomes a rectangle when rendered, because X and Y scale factors differ (800/600 = 4:3 aspect ratio).
 
@@ -169,7 +169,7 @@ If you specify Z values in pixel coordinates alongside X and Y:
 gl_Position = vec4(pixel_x, pixel_y, 800.0, 1.0);  // Z=800?!
 ```
 
-The depth buffer expects Z values in the normalized range after NDC transformation (typically 0~1 after viewport transformation, or -1~+1 in NDC space). Using large pixel-unit Z values causes:
+The depth buffer expects Z values in the normalized range after NDC transformation (typically 0..1 after viewport transformation, or -1..+1 in NDC space). Using large pixel-unit Z values causes:
 
 - **Depth test failures:** The depth buffer cannot properly compare depth values
 - **Z-fighting artifacts:** Precision loss in depth comparisons
@@ -190,7 +190,7 @@ While pixel-based coordinates face conceptual obstacles, **modern GPU-accelerate
 #### The Simple (Naive) Approach
 
 ```glsl
-// Pixel coordinates input (0,0)~(800,600)
+// Pixel coordinates input (0,0)..(800,600)
 // Without aspect ratio correction (DISTORTS geometry)
 vec2 ndc = (pixel_pos / vec2(400.0, 300.0)) - 1.0;
 // Result: Squares become rectangles at 4:3 aspect ratio
@@ -363,7 +363,7 @@ If you specify a vertex at `(400, 300)` and pass it directly to `gl_Position` wi
 
 | Issue | Explanation |
 |-------|-------------|
-| **Out of clipping bounds** | The NDC valid range is -1.0 ~ +1.0. The value 400 far exceeds this range. |
+| **Out of clipping bounds** | The NDC valid range is -1.0 .. +1.0. The value 400 far exceeds this range. |
 | **Clipping discards vertices** | The rasterizer's clipping stage deems nearly all vertices **outside the valid region** and discards them. |
 | **Result: Black screen** | Nothing appears because all geometry is clipped away. |
 
@@ -394,14 +394,14 @@ Many beginners make this mental error:
 ```
 Pixel Coordinates (Your input)
   → (Requires transformation) ???
-  → NDC (-1 ~ +1)
+  → NDC (-1 .. +1)
   → [Viewport Transform via glViewport]
   → Pixel Coordinates (Screen output)
 ```
 
 **Critical insight**: `glViewport(0, 0, 800, 600)` means:
-- "Map NDC coordinates (-1 ~ +1) to screen pixels (0 ~ 799, 0 ~ 599)"
-- It **does NOT** mean: "My input will be in the range 0 ~ 800, 0 ~ 600"
+- "Map NDC coordinates (-1 .. +1) to screen pixels (0 .. 799, 0 .. 599)"
+- It **does NOT** mean: "My input will be in the range 0 .. 800, 0 .. 600"
 
 ---
 
@@ -417,7 +417,7 @@ vec2 ndc = (pixel_pos / vec2(800.0, 600.0)) * 2.0 - 1.0;
 // Result: X-axis scaled 0→800, Y-axis scaled 0→600
 ```
 
-**Problem**: The aspect ratio is **4:3** (800 ÷ 600 = 1.33), but NDC assumes a **square** (-1 ~ +1 on all axes).
+**Problem**: The aspect ratio is **4:3** (800 ÷ 600 = 1.33), but NDC assumes a **square** (-1 .. +1 on all axes).
 
 **Consequence**: A square drawn at pixel coordinates becomes a **rectangle** in NDC space.
 
@@ -458,7 +458,7 @@ glm::mat4 proj = glm::ortho(
 - Vertex `(400, 300, 0)` → maps to **NDC (0, 0, 0)** (screen center) ✅
 - Vertex `(0, 0, 0)` → maps to **NDC (-1, -1, 0)** (bottom-left) ✅
 - Viewport `(0, 0, 800, 600)` → correctly renders center point at pixel `(400, 300)` ✅
-- Z values are normalized to -1 ~ +1, so **depth testing works correctly** ✅
+- Z values are normalized to -1 .. +1, so **depth testing works correctly** ✅
 
 ### Does It Work?
 
@@ -536,8 +536,8 @@ For complex applications, **separate your rendering into layers**:
 
 | Layer | Coordinate System | Projection |
 |-------|------------------|-----------|
-| **Game world** | World coordinates (-10 ~ 10) | Perspective/Ortho with view matrix |
-| **UI overlay** | Pixel coordinates (0 ~ 800, 0 ~ 600) | Orthographic projection |
+| **Game world** | World coordinates (-10 .. 10) | Perspective/Ortho with view matrix |
+| **UI overlay** | Pixel coordinates (0 .. 800, 0 .. 600) | Orthographic projection |
 | **Debug output** | Pixel coordinates | Orthographic projection |
 
 Each layer uses its **appropriate coordinate system and projection**, avoiding the pitfalls of a monolithic pixel-based design.
