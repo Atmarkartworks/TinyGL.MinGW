@@ -588,7 +588,8 @@ void main() {
 - Graphics Gems Series: Matrix operations and coordinate transformations
 - [Piglit](https://gitlab.freedesktop.org/mesa/piglit): OpenGL test suite for Mesa drivers
 - [apitrace](https://apitrace.github.io/): A suite of tools for tracing, replaying, and inspecting graphics API calls
-
+- [Mesa 3D Graphics Library](https://www.mesa3d.org/): An open-source implementation of OpenGL, Vulkan, and other graphics APIs
+- [llvmpipe](https://gallo.pages.freedesktop.org/mesa/drivers/llvmpipe.html): A high-performance software rasterizer that uses LLVM for JIT compilation
 ---
 
 **Author's Note**: This document addresses a widespread source of confusion among graphics programmers transitioning from pedagogical OpenGL examples to real-world implementations. Understanding this distinction—between **what works** and **what scales**—is critical for professional graphics engineering.
