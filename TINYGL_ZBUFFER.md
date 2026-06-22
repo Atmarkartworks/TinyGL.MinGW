@@ -32,7 +32,7 @@ This technical report investigates the persistent misconception that **vertex co
 | Finding Category | Details |
 |------------------|---------|
 | **Problem Statement** | Naive pixel-based vertex specifications fail because OpenGL's vertex shader must output **Normalized Device Coordinates (NDC)** in the range **[-1.0, +1.0]**. Pixel values like `(400, 300)` far exceed this range and are discarded by the clipping stage, resulting in no visible geometry. |
-| **Primary Cause** | Coordinate space mismatch: pixel units (0~800) vs. NDC requirement (-1~+1) |
+| **Primary Cause** | Coordinate space mismatch: pixel units (0 .. 800) vs. NDC requirement (-1 .. +1) |
 
 #### Critical Pitfalls
 
