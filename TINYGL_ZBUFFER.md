@@ -597,7 +597,7 @@ void main() {
 
 **Document Metadata**:
 - **Status**: Complete Technical Reference
-- **Last Updated**: 2026-06-17
+- **Last Updated**: 2026-06-22
 - **Format**: Markdown for GitHub repository
 - **License**: CC0 1.0 Universal (Public Domain)
 
