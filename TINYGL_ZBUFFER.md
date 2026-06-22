@@ -586,7 +586,8 @@ void main() {
 
 - OpenGL Specification: Primitive Rasterization and Viewport Transformation
 - Graphics Gems Series: Matrix operations and coordinate transformations
-
+- [Piglit](https://gitlab.freedesktop.org/mesa/piglit): OpenGL test suite for Mesa drivers
+- [apitrace](https://apitrace.github.io/): A suite of tools for tracing, replaying, and inspecting graphics API calls
 
 ---
 
@@ -597,7 +598,7 @@ void main() {
 
 **Document Metadata**:
 - **Status**: Complete Technical Reference
-- **Last Updated**: 2026-06-22
+- **Last Updated**: 2026-06-23
 - **Format**: Markdown for GitHub repository
 - **License**: CC0 1.0 Universal (Public Domain)
 
