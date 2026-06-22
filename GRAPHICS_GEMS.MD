@@ -18,7 +18,9 @@ You are free to:
 
 **CC0 1.0 Universal**: https://creativecommons.org/publicdomain/zero/1.0/
 
-This technical reference material is provided as-is without warranty, as a contribution to the graphics programming community.
+**Disclaimer**: This document is provided as-is for educational and professional reference purposes. The authors make no warranty regarding the accuracy or completeness of the information. Readers are encouraged to verify technical claims against official OpenGL specifications and test code implementations independently.
+
+
 
 ---
 
@@ -89,6 +91,7 @@ This technical reference material is provided as-is without warranty, as a contr
 
 **Group Total**: 2 features, ~300 LOC
 
+> Note: Specifying coordinates in pixels and comparing depths in the [Z-buffer](TINYGL_ZBUFFER.md) are separate issues. 
 ---
 
 #### **【Group 4】Lighting & Shading (Lighting/Shading)**
@@ -248,6 +251,7 @@ This technical reference material is provided as-is without warranty, as a contr
 
 **File Total**: 6 functions, ~200 LOC, **Hours: 10**, **Graphics Gems Coverage: 85%**
 
+> Note: Specifying coordinates in pixels and comparing depths in the [Z-buffer](TINYGL_ZBUFFER.md) are separate issues. 
 ---
 
 ### 【File 6】clip.c - Clipping & Polygon Drawing
@@ -687,7 +691,7 @@ Furthermore, the **stage-based implementation roadmap is exceptionally valuable*
 
 **Document Metadata**:
 - **Status**: Complete Technical Reference
-- **Last Updated**: 2026-06-17
+- **Last Updated**: 2026-06-22
 - **Format**: Markdown for GitHub repository
 - **License**: CC0 1.0 Universal (Public Domain)
 
