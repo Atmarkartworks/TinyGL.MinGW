@@ -591,7 +591,7 @@ void main() {
 - [Mesa 3D Graphics Library](https://www.mesa3d.org/): An open-source implementation of OpenGL, Vulkan, and other graphics APIs
 - [llvmpipe](https://gallo.pages.freedesktop.org/mesa/drivers/llvmpipe.html): A high-performance software rasterizer that uses LLVM for JIT compilation
 ---
-- [LearnOpenGL.com](https://learnopengl.com): A comprehensive, step-by-step tutorial resource covering the entire OpenGL graphics pipeline, from coordinate systems and transformations to advanced rendering techniques. It provides clear explanations, code examples, and visual aids that solidify the foundational concepts discussed in this document, particularly the **Coordinate Systems** and **2D Games** chapters which directly address orthographic projections and NDC space.
+- [LearnOpenGL.com](https://learnopengl.com): A comprehensive, step-by-step tutorial resource covering the entire OpenGL graphics pipeline, from coordinate systems and transformations to advanced rendering techniques. It provides clear explanations, code examples, and visual aids that solidify the foundational concepts discussed in this document, particularly the **[Coordinate Systems](https://learnopengl.com/Getting-started/Coordinate-Systems)** and **[2D Games](https://learnopengl.com/index.php?p=In-Practice/2D-Game/Rendering-Sprites)** chapters which directly address orthographic projections and NDC space.
 ---
 
 
